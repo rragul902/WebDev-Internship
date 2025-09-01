@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #00c6ff, #0072ff); height: 100vh; display: flex; justify-content: center; align-items: center; }
+    .converter { background: white; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0px 10px 20px rgba(0,0,0,0.3); width: 350px; }
+    h2 { margin-bottom: 20px; color: #0072ff; }
+    select, input, button { padding: 12px; margin: 10px 0; font-size: 16px; border: 1px solid #ddd; border-radius: 8px; width: 100%; }
+    button { background: #0072ff; color: white; border: none; transition: 0.3s; }
+    button:hover { background: #0056b3; transform: scale(1.05); }
+    #result { margin-top: 20px; font-weight: bold; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h2>Currency Converter</h2>
+    <input type="number" id="amount" placeholder="Enter amount" />
+    <select id="from">
+      <option value="USD">USD</option>
+      <option value="INR">INR</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <select id="to">
+      <option value="INR">INR</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <button onclick="convert()">Convert</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    async function convert() {
+      let amount = document.getElementById("amount").value;
+      let from = document.getElementById("from").value;
+      let to = document.getElementById("to").value;
+
+      if (amount === "") {
+        document.getElementById("result").innerText = "⚠️ Please enter an amount";
+        return;
+      }
+
+      let url = `https://api.exchangerate-api.com/v4/latest/${from}`;
+      let response = await fetch(url);
+      let data = await response.json();
+
+      let rate = data.rates[to];
+      let result = amount * rate;
+
+      document.getElementById("result").innerText = `${amount} ${from} = ${result.toFixed(2)} ${to}`;
+    }
+  </script>
+</body>
+</html>
