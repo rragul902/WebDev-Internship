@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; background: #f4f4f9; color: #333; }
+    header { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; padding: 20px 0; text-align: center; position: sticky; top: 0; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: yellow; }
+    section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+    #about, #skills, #projects, #contact { background: white; margin-bottom: 20px; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h2 { color: #2575fc; margin-bottom: 15px; }
+    .projects { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .project-card { background: #2575fc; color: white; padding: 20px; width: 280px; border-radius: 10px; transition: 0.3s; }
+    .project-card:hover { transform: scale(1.05); box-shadow: 0px 8px 15px rgba(0,0,0,0.3); }
+    footer { background: #222; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a passionate Web Developer skilled in HTML, CSS, JavaScript, and Python. I love building modern, responsive websites with interactive features.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>✅ HTML, CSS, JavaScript</li>
+      <li>✅ Python & Django</li>
+      <li>✅ React & Node.js</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">Portfolio Website</div>
+      <div class="project-card">Calculator App</div>
+      <div class="project-card">Currency Converter</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email: youremail@example.com</p>
+    <p>📱 Phone: +91-9876543210</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Portfolio | Designed with ❤️</p>
+  </footer>
+</body>
+</html>
